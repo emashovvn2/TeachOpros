@@ -14,9 +14,6 @@ def detail(request, riddle_id):
 
 def answer(request, riddle_id):
     riddle = get_object_or_404(Riddle, pk=riddle_id)
-    print(request.META.get('REMOTE_ADDR'))
-    for q in request.POST.getlist ('option'):
-        print(q)
     answ = Answers(riddle = riddle, answers = request.POST.getlist ('option'), ip = request.META.get('REMOTE_ADDR'))
     answ.save()
     try:
