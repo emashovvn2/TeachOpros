@@ -41,4 +41,16 @@ class Answers(models.Model):
         verbose_name = 'Ответ на вопрос'
         verbose_name_plural = 'Ответы на вопросы'
 
+
+class RightAnswers(models.Model):
+    ###Правильные Ответы###
+    riddle = models.ForeignKey(Riddle, on_delete=models.CASCADE)
+    rightanswers = models.TextField(null=True)
+
+    def __str__(self):
+        return str(self.riddle) + ' - ' + self.rightanswers
+
+    class Meta:
+        verbose_name = 'Правильный ответ на вопрос'
+        verbose_name_plural = 'Правильные ответы на вопросы'
 # Create your models here.

@@ -24,5 +24,6 @@ def answer(request, riddle_id):
         try:
             rid = Riddle.objects.get(pk=str(int(riddle_id) + 1))
         except Riddle.DoesNotExist:
+
             return render(request, 'end.html', {'riddle': riddle, 'error_message': 'Опрос окончен'})
         return render(request, 'answer.html', {'riddle': rid, 'error_message': ''})
