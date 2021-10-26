@@ -19,21 +19,22 @@ form {
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
+    width: 90%;
 }
 form div + div {
     margin-top: 1em;
 }
 label {
     display: inline-block;
-    text-align: center;
-    width: 40%;
+    text-align: left;
+    width: 80%;
 }
 input {
     font: 1em sans-serif;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border: 1px solid #999;
-    width: 50%;
+    width: 20%;
 }
 input:focus {
     border-color: #000;
