@@ -1,0 +1,10 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+
+<h1>Результаты опроса</h1>
+
+
+    {% for res in {{results}} %}
+        res
+    {% endfor %}
