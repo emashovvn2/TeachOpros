@@ -2,9 +2,23 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
 
-<h1>Результаты опроса</h1>
 
 
-    {% for res in {{results}} %}
-        res
+<table>
+    <caption>Результаты опроса</caption>
+    <tr>
+        <th>Вопрос</th>
+        <th>Процент неверных ответов</th>
+    </tr>
+    {% for key, value, redcell in results %}
+        <tr>
+            <td>{{key}}</td>
+            <td             {% if redcell %}
+                                bgcolor = "red"
+                                color = "white"
+                                {% endif %}
+                    >{{value}}</td>
+
+        </tr>
     {% endfor %}
+</table>

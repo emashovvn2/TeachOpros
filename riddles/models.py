@@ -3,9 +3,12 @@ from datetime import datetime
 
 class Riddle(models.Model):
     ###Вопросы###
-    name = models.CharField('Номер вопроса',max_length=255, default='')
-    riddle_text = models.CharField(max_length=255)
-    pub_date = models.DateTimeField('date published')
+    #name = models.CharField('Номер вопроса',max_length=255, default='')
+    riddle_text = models.CharField('Текст вопроса',max_length=255)
+    pub_date = models.DateTimeField('Дата создания')
+    active = models.BooleanField('Задаваемый вопрос', default=True)
+    day_filter = models.CharField('На какой день вопрос', max_length=2,default='1')
+    image = models.ImageField('Картинка', upload_to='media/', default='')
 
     def __str__(self):
         return self.name
@@ -41,16 +44,4 @@ class Answers(models.Model):
         verbose_name = 'Ответ на вопрос'
         verbose_name_plural = 'Ответы на вопросы'
 
-
-class RightAnswers(models.Model):
-    ###Правильные Ответы###
-    riddle = models.ForeignKey(Riddle, on_delete=models.CASCADE)
-    rightanswers = models.TextField(null=True)
-
-    def __str__(self):
-        return str(self.riddle) + ' - ' + self.rightanswers
-
-    class Meta:
-        verbose_name = 'Правильный ответ на вопрос'
-        verbose_name_plural = 'Правильные ответы на вопросы'
 # Create your models here.
