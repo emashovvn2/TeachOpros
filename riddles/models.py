@@ -5,13 +5,13 @@ class Riddle(models.Model):
     ###Вопросы###
     #name = models.CharField('Номер вопроса',max_length=255, default='')
     riddle_text = models.CharField('Текст вопроса',max_length=255)
-    pub_date = models.DateTimeField('Дата создания')
+    #pub_date = models.DateTimeField('Дата создания')
     active = models.BooleanField('Задаваемый вопрос', default=True)
     day_filter = models.CharField('На какой день вопрос', max_length=2,default='1')
-    image = models.ImageField('Картинка', upload_to='media/', default='')
+    image = models.ImageField('Картинка', upload_to='', blank=True)
 
     def __str__(self):
-        return self.name
+        return self.riddle_text
 
     class Meta:
         verbose_name = 'Вопрос'

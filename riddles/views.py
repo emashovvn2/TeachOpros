@@ -41,7 +41,7 @@ def results(request):
 
 
 def index(request):
-    return render(request, "index.html", {"latest_riddles": Riddle.objects.order_by('-pub_date')[:5]})
+    return render(request, "index.html", {"latest_riddles": Riddle.objects.order_by('id')})
 
 
 def detail(request, riddle_id):

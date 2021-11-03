@@ -14,7 +14,7 @@
         {% for riddle in latest_riddles %}
             <li>
                 <a href="/riddles/{{ riddle.id }}/">
-                    {{ riddle.name }}
+                    {{ riddle.riddle_text }}
                 </a>
             </li>
         {% endfor %}

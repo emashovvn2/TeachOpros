@@ -9,9 +9,10 @@
         <strong>{{ error_message }}</strong>
     </p>
 {% endif %}
-
+<img src={% static riddle.image %} width = '650 px' align="middle" alt="альтернативный текст">
 <form action="{% url 'riddles:answer' riddle.id %}" method="post">
     {% csrf_token %}
+
     {% for option in riddle.option_set.all %}
         <input type="checkbox" name="option" id="option{{ forloop.counter }}" value="{{ option.id }}" />
         <label for="option{{ forloop.counter }}">{{ option.text }}</label><br />
